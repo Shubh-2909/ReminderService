@@ -4,7 +4,11 @@
     "password": "shubhshubh7",
     "database": "REMINDER_DB_DEV",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "useUTC" : false
+    },
+    "timezone" : "+05:30"
   },
   "test": {
     "username": "root",

@@ -2,19 +2,24 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const {PORT} = require('./config/serverConfig')
+const {createChannel} = require('./controllers/ticket-controller')
 // const cron = require('node-cron');
 const jobs = require('./utils/job')
+const m = require('./models/notificationticket')
 const TicketController = require('./controllers/ticket-controller')
 // const {sendBasicEmail} = require('./services/email-services')
-const setupAndStartServer = () => {
+const setupAndStartServer = async () => {
     const app = express();
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended:true}));
+
+    
+
     app.post('/api/v1/tickets' , TicketController.create);
 
     app.listen(PORT , () => {
       console.log(`Server started on port ${PORT}`);
-      jobs();
+      // jobs();
 
     //   sendBasicEmail(
     //     'shubhshubhanjal96@gmail.com',
